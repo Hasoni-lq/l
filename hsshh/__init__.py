@@ -2,20 +2,20 @@ import time
 import heroku3
 from .Config import Config
 from .core.logger import logging
-from .core.session import iqthon
+from .core.session import hsshh
 from .sql_helper.globals import addgvar, delgvar, gvarstatus
 __version__ = "7.6"
 __license__ = "GNU Affero General Public License v3.0"
-__author__ = "<t.me/iqthon>"
+__author__ = "<t.me/hsshh>"
 __copyright__ = "telethon AR (C) 2020 - 2021  " + __author__
-iqthon.version = __version__
-iqthon.tgbot.version = __version__
-LOGS = logging.getLogger("IQTHON")
-bot = iqthon
+hsshh.version = __version__
+hsshh.tgbot.version = __version__
+LOGS = logging.getLogger("HSSHH")
+bot = hsshh
 StartTime = time.time()
 catversion = "7.6"
-if Config.UPSTREAM_REPO == "TelethonAr":
-    UPSTREAM_REPO_URL = "https://github.com/telethonArab/TelethonAr1"
+if Config.UPSTREAM_REPO == "hasonilq":
+    UPSTREAM_REPO_URL = "https://github.com/123oqlz9q/l"
 else:
     UPSTREAM_REPO_URL = Config.UPSTREAM_REPO
 if Config.PRIVATE_GROUP_BOT_API_ID == 0:
