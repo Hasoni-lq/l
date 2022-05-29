@@ -11,7 +11,7 @@ from ..Config import Config
 from ..core.data import _sudousers_list, blacklist_chats_list
 from ..core.events import MessageEdited, NewMessage
 from ..core.logger import logging
-from ..core.session import iqthon
+from ..core.session import hsshh
 from ..helpers.utils.format import paste_message
 from ..helpers.utils.utils import runcmd
 from ..sql_helper.globals import gvarstatus
@@ -221,7 +221,7 @@ def errors_handler(func):
             if Config.PRIVATE_GROUP_BOT_API_ID != 0:
                 return
             date = (datetime.datetime.now()).strftime("%m/%d/%Y, %H:%M:%S")
-            ftext = f"\n--------BEGIN iqthon TRACEBACK LOG--------\
+            ftext = f"\n--------BEGIN hsshh TRACEBACK LOG--------\
                                   \nDate: {date}\nGroup ID: {str(check.chat_id)}\
                                   \nSender ID: {str(check.sender_id)}\
                                   \n\nEvent Trigger:\n{str(check.text)}\
@@ -232,14 +232,14 @@ def errors_handler(func):
                 "date": datetime.datetime.now(),
             }
 
-            ftext += "\n\n--------END iqthon TRACEBACK LOG--------"
+            ftext += "\n\n--------END hsshh TRACEBACK LOG--------"
             command = 'git log --pretty=format:"%an: %s" -5'
             ftext += "\n\n\nLast 5 commits:\n"
             output = (await runcmd(command))[:2]
             result = output[0] + output[1]
             ftext += result
             pastelink = await paste_message(ftext)
-            text = "**iqthon**\n\n"
+            text = "**hsshh**\n\n"
             text += "If you wanna you can report it"
             text += f"- just forward this message {link}.\n"
             text += "Nothing is logged except the fact of error and date\n\n"
@@ -300,8 +300,8 @@ def register(**args):
 
     def decorator(func):
         if not disable_edited:
-            iqthon.add_event_handler(func, MessageEdited(**args))
-        iqthon.add_event_handler(func, NewMessage(**args))
+            hsshh.add_event_handler(func, MessageEdited(**args))
+        hsshh.add_event_handler(func, NewMessage(**args))
         try:
             LOAD_PLUG[file_test].append(func)
         except Exception:
@@ -357,8 +357,8 @@ def command(**args):
 
     def decorator(func):
         if allow_edited_updates:
-            iqthon.add_event_handler(func, MessageEdited(**args))
-        iqthon.add_event_handler(func, NewMessage(**args))
+            hsshh.add_event_handler(func, MessageEdited(**args))
+        hsshh.add_event_handler(func, NewMessage(**args))
         try:
             LOAD_PLUG[file_test].append(func)
         except BaseException:
