@@ -1,7 +1,7 @@
 from datetime import datetime
 from math import floor
 from telethon.utils import get_display_name
-from iqthon import iqthon
+from hsshh import hsshh
 from ..Config import Config
 from ..core.logger import logging
 from ..helpers import reply_id
@@ -62,14 +62,14 @@ async def ban_user_from_bot(user, reason, reply_to=None):
     banned_msg = (
         f"**You have been Banned Forever from using this bot.\nReason** : {reason}"
     )
-    await iqthon.tgbot.send_message(user.id, banned_msg)
+    await hsshh.tgbot.send_message(user.id, banned_msg)
     info = f"**#Banned_Bot_PM_User**\
             \n\n👤 {_format.mentionuser(get_display_name(user) , user.id)}\
             \n**First Name:** {user.first_name}\
             \n**User ID:** `{user.id}`\
             \n**Reason:** `{reason}`"
     if BOTLOG:
-        await iqthon.send_message(BOTLOG_CHATID, info)
+        await hsshh.send_message(BOTLOG_CHATID, info)
     return info
 
 
@@ -81,11 +81,11 @@ async def unban_user_from_bot(user, reason, reply_to=None):
     banned_msg = f"**You have been Unbanned from this bot. From now on you can send messages here to contact my master.**"
     if reason is not None:
         banned_msg += f"\n**Reason:** __{reason}__"
-    await iqthon.tgbot.send_message(user.id, banned_msg)
+    await hsshh.tgbot.send_message(user.id, banned_msg)
     info = f"**#Unbanned_Bot_PM_User**\
             \n\n👤 {_format.mentionuser(get_display_name(user) , user.id)}\
             \n**First Name:** {user.first_name}\
             \n**User ID:** `{user.id}`"
     if BOTLOG:
-        await iqthon.send_message(BOTLOG_CHATID, info)
+        await hsshh.send_message(BOTLOG_CHATID, info)
     return info
