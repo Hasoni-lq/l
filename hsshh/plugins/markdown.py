@@ -7,8 +7,8 @@ from telethon.tl import types
 from telethon.tl.functions.messages import EditMessageRequest
 from telethon.tl.types import MessageEntityBold,    MessageEntityCode,    MessageEntityItalic,    MessageEntityPre,    MessageEntityTextUrl,    MessageEntityUnderline 
 from telethon.utils import add_surrogate, del_surrogate
-from iqthon import iqthon
-from iqthon.core.logger import logging
+from hsshh import hsshh
+from hsshh.core.logger import logging
 LOGS = logging.getLogger(__name__)
 plugin_category = "utils"
 usernexp = re.compile(r"@(\w{3,32})\[(.+?)\]")
@@ -109,7 +109,7 @@ def parse(message, old_entities=None):
         return del_surrogate(message), entities + old_entities
     except Exception as e:
         LOGS.info(str(e))
-@iqthon.iq_cmd(outgoing=True)
+@hsshh.iq_cmd(outgoing=True)
 async def reparse(event):
     old_entities = event.message.entities or []
     parser = partial(parse, old_entities=old_entities)
@@ -125,7 +125,7 @@ async def reparse(event):
                 no_webpage=not bool(event.message.media),
                 entities=msg_entities,            )        )
         raise events.StopPropagation
-@iqthon.iq_cmd(outgoing=True)
+@hsshh.iq_cmd(outgoing=True)
 async def mention(event):
     newstr = event.text
     if event.entities:
