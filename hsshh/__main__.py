@@ -6,7 +6,7 @@ from .Config import Config
 from .core.logger import logging
 from .core.session import hsshh
 from .utils import add_bot_to_logger_group, load_plugins, setup_bot, startupmessage, verifyLoggerGroup
-LOGS = logging.getLogger("تليثون العرب")
+LOGS = logging.getLogger("hso coming . . .")
 cmdhr = Config.COMMAND_HAND_LER
 try:
     LOGS.info("start download hso . . .")
