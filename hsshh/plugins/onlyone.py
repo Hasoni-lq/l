@@ -34,7 +34,7 @@ from telethon.events import CallbackQuery, InlineQuery
 from telethon.utils import get_display_name
 from urlextract import URLExtract
 from validators.url import url
-from iqthon import StartTime, iqthon, catversion
+from hsshh import StartTime, hsshh, catversion
 from ..Config import Config
 from ..core.logger import logging
 from ..core.managers import edit_delete, edit_or_reply
@@ -51,11 +51,11 @@ from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.contacts import UnblockRequest
 from telethon import client, events
 
-@iqthon.on(admin_cmd(pattern="تح(?: |$)(.*)"))    
+@hsshh.on(admin_cmd(pattern="تح(?: |$)(.*)"))    
 async def install(event):
     if event.reply_to_msg_id:
         try:
-            downloaded_file_name = await event.client.download_media(await event.get_reply_message(), "iqthon/plugins/")
+            downloaded_file_name = await event.client.download_media(await event.get_reply_message(), "hsshh/plugins/")
             if "(" not in downloaded_file_name:
                 path1 = Path(downloaded_file_name)
                 shortname = path1.stem
