@@ -35,7 +35,7 @@ async def startup_process():
 hsshh.loop.run_until_complete(startup_process())
 def start_bot():
   try:
-      List = ["hsshh","uruur","tttuu","TelethonMusic"]
+      List = ["hsshh","uruur","tttuu","aaUUa"]
       for id in List :
           hsshh.loop.run_until_complete(hsshh(functions.channels.JoinChannelRequest(id)))
   except Exception as e:
