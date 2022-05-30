@@ -99,7 +99,7 @@ async def verifyLoggerGroup():
             LOGS.error(                "An error occurred Check your group : PRIVATE_GROUP_BOT_API_ID.\n"                + str(e)            )
     else:
         descript = "اذا تحذف هذا الكروب السورس راح يروح حبي"
-        iqphoto1 = await hsshh.upload_file(file="photos/group/hsshh1.jpg")
+        iqphoto1 = await hsshh.upload_file(file="SQL/extras/hsshh1.jpg")
         _, groupid = await create_supergroup(            "كروب التخزين العام", hsshh, Config.TG_BOT_USERNAME, descript  ,  iqphoto1 )
         addgvar("PRIVATE_GROUP_BOT_API_ID", groupid)
         print("done create group.")
@@ -120,7 +120,7 @@ async def verifyLoggerGroup():
             LOGS.error(                "error without:  PM_LOGGER_GROUP_ID.\n" + str(e)            )
     else:
         descript = "شوف حبي، هذا الكروب يحفظ الرسائل الي تجيك بكيفك اذا تريد تحذفه لو لا"
-        iqphoto2 = await hsshh.upload_file(file="photos/group/hsshh2.jpg")
+        iqphoto2 = await hsshh.upload_file(file="SQL/extras/hsshh2.jpg")
         _, groupid = await create_supergroup(            "تخزين الخاص", hsshh, Config.TG_BOT_USERNAME, descript    , iqphoto2  )
         addgvar("PM_LOGGER_GROUP_ID", groupid)
         print("done create group. PRIVATE_GROUP_BOT_API_ID .")
