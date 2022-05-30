@@ -14,8 +14,8 @@ LOGS = logging.getLogger("HSSHH")
 bot = hsshh
 StartTime = time.time()
 catversion = "7.6"
-if Config.UPSTREAM_REPO == "hasonilq":
-    UPSTREAM_REPO_URL = "https://github.com/123oqlz9q/l"
+if Config.UPSTREAM_REPO == "hso":
+    UPSTREAM_REPO_URL = "https://github.com/Hasoni-lq/l"
 else:
     UPSTREAM_REPO_URL = Config.UPSTREAM_REPO
 if Config.PRIVATE_GROUP_BOT_API_ID == 0:
