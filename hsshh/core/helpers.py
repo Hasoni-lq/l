@@ -6,13 +6,13 @@ from telethon.utils import get_display_name
 
 from .events import NewMessage
 
-LOGGER = logging.getLogger("iqthon")
+LOGGER = logging.getLogger("hsshh")
 
 
 def printUser(entity: types.User) -> None:
     """Print the user's first name + last name upon start"""
     user = get_display_name(entity)
-    LOGGER.warning("تم تسجيل الدخول بنجاح {0}".format(user))
+    LOGGER.warning("Done sign in {0}".format(user))
 
 
 async def get_chat_link(
