@@ -10,7 +10,7 @@ from telethon import Button, types, version
 from telethon.errors import QueryIdInvalidError
 from telethon.events import CallbackQuery, InlineQuery
 from youtubesearchpython import VideosSearch
-from iqthon import iqthon, catversion, StartTime
+from hsshh import hsshh, catversion, StartTime
 from ..Config import Config
 from ..helpers.functions import rand_key, catalive, check_data_base_heal_th, get_readable_time
 from ..helpers.functions.utube import download_button, get_yt_video_id, get_ytthumb, result_formatter, ytsearch_data
@@ -20,7 +20,7 @@ from . import CMD_INFO, GRP_INFO, PLG_INFO, check_owner
 from .logger import logging
 LOGS = logging.getLogger(__name__)
 BTN_URL_REGEX = re.compile(r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)")
-CATLOGO = "https://telegra.ph/file/1bf9c1b0a084c258b1f97.jpg"
+CATLOGO = "https://telegra.ph/file/876adbae077148af2672b.jpg"
 tr = Config.COMMAND_HAND_LER
 def getkey(val):
     for key, value in GRP_INFO.items():
@@ -38,7 +38,7 @@ def ibuild_keyboard(buttons):
             keyb.append([Button.url(btn[0], btn[1])])
     return keyb
 
-@iqthon.tgbot.on(InlineQuery)
+@hsshh.tgbot.on(InlineQuery)
 async def inline_handler(event):  
     builder = event.builder
     result = None
@@ -51,11 +51,11 @@ async def inline_handler(event):
     if query_user_id == Config.OWNER_ID or query_user_id in Config.SUDO_USERS:
         hmm = re.compile("همسه (.*) (.*)")
         match = re.findall(hmm, query)
-        if query.startswith("**iqthonbot"):
+        if query.startswith("**hsshhbot"):
             buttons = [
                 (
                     Button.inline("السورس", data="stats"),
-                    Button.url("الريبو", "https://github.com/telethon-Arab/telethonNow"),
+                    Button.url("حسابك", "tg://settings"),
                 )
             ]
             ALIVE_PIC = gvarstatus("ALIVE_PIC")
@@ -127,7 +127,7 @@ async def inline_handler(event):
             query = query[7:]
             user, txct = query.split(" ", 1)
             builder = event.builder
-            secret = os.path.join("./iqthon", "secrets.txt")
+            secret = os.path.join("./hsshh", "secrets.txt")
             try:
                 jsondata = json.load(open(secret))
             except Exception:
@@ -300,10 +300,10 @@ async def inline_handler(event):
     else:
         buttons = [
             (
-                Button.url("Source code", "https://github.com/telethontesthelp/Telethon-arabb"),
+                Button.url("No Source", "t.me/f"),
                 Button.url(
-                    "Deploy",
-                    "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FMr-confused%2Fcatpack&template=https%3A%2F%2Fgithub.com%2FMr-confused%2Fcatpack",
+                    "You",
+                    "tg://settings",
                 ),
             )
         ]
@@ -312,14 +312,14 @@ async def inline_handler(event):
             url=CATLOGO, size=0, mime_type="image/jpeg", attributes=[]
         )
         text, msg_entities = await event.client._parse_message_text(
-            "iqthon.", "md"
+            "hsshh.", "md"
         )
         result = types.InputBotInlineResult(
             id=str(uuid4()),
             type="photo",
-            title="iqthon",
-            description="نصب لنفسك",
-            url="https://dashboard.heroku.com/new?template=https://github.com/telethon-Arab/teletho-help",
+            title="hsshh",
+            description="-",
+            url="t.me/f",
             thumb=photo,
             content=photo,
             send_message=types.InputBotInlineMessageMediaAuto(
@@ -327,14 +327,14 @@ async def inline_handler(event):
             ),
         )
         await event.answer([result] if result else None)
-@iqthon.tgbot.on(CallbackQuery(data=re.compile(b"close")))
+@hsshh.tgbot.on(CallbackQuery(data=re.compile(b"close")))
 @check_owner
 async def on_plug_in_callback_query_handler(event):
     buttons = [
         (Button.inline("Open Menu", data="mainmenu"),),
     ]
     await event.edit("Menu Closed", buttons=buttons)
-@iqthon.tgbot.on(CallbackQuery(data=re.compile(rb"mainmenu")))
+@hsshh.tgbot.on(CallbackQuery(data=re.compile(rb"mainmenu")))
 @check_owner
 async def on_plug_in_callback_query_handler(event):
     _result = main_menu()
