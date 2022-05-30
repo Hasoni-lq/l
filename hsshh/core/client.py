@@ -137,16 +137,16 @@ class CatUserBotClient(TelegramClient):
                         pastelink = await paste_message(
                             ftext, pastetype="s", markdown=False
                         )
-                        text = "**⌔"
+                        text = "**🇮🇶"
                         text += (
                             "︙"
                         )
-                        text += f" عذرا قم بكتابه الأمر بشكل صحيح راجع : @IQTHON ** "
+                        text += f" اكتب الامر عدل حبي ** "
                         await check.client.send_message(
                             Config.PRIVATE_GROUP_BOT_API_ID, text, link_preview=False
                         )
 
-            from .session import iqthon
+            from .session import hsshh
 
             if not func.__doc__ is None:
                 CMD_INFO[command[0]].append((func.__doc__).strip())
@@ -159,18 +159,18 @@ class CatUserBotClient(TelegramClient):
                     except BaseException:
                         LOADED_CMDS.update({command[0]: [wrapper]})
                 if edited:
-                    iqthon.add_event_handler(
+                    hsshh.add_event_handler(
                         wrapper,
                         MessageEdited(pattern=REGEX_.regex1, outgoing=True, **kwargs),
                     )
-                iqthon.add_event_handler(
+                hsshh.add_event_handler(
                     wrapper,
                     NewMessage(pattern=REGEX_.regex1, outgoing=True, **kwargs),
                 )
                 if allow_sudo and gvarstatus("sudoenable") is not None:
                     if command is None or command[0] in sudo_enabledcmds:
                         if edited:
-                            iqthon.add_event_handler(
+                            hsshh.add_event_handler(
                                 wrapper,
                                 MessageEdited(
                                     pattern=REGEX_.regex2,
@@ -178,7 +178,7 @@ class CatUserBotClient(TelegramClient):
                                     **kwargs,
                                 ),
                             )
-                        iqthon.add_event_handler(
+                        hsshh.add_event_handler(
                             wrapper,
                             NewMessage(
                                 pattern=REGEX_.regex2,
@@ -194,8 +194,8 @@ class CatUserBotClient(TelegramClient):
                 except BaseException:
                     LOADED_CMDS.update({file_test: [func]})
                 if edited:
-                    iqthon.add_event_handler(func, events.MessageEdited(**kwargs))
-                iqthon.add_event_handler(func, events.NewMessage(**kwargs))
+                    hsshh.add_event_handler(func, events.MessageEdited(**kwargs))
+                hsshh.add_event_handler(func, events.NewMessage(**kwargs))
             return wrapper
 
         return decorator
@@ -246,21 +246,21 @@ class CatUserBotClient(TelegramClient):
                         pastelink = await paste_message(
                             ftext, pastetype="s", markdown=False
                         )
-                        text = "**⌔"
+                        text = "**🇮🇶"
                         text += (
                             "︙"
                         )
-                        text += f" عذرا قم بكتابه الأمر بشكل صحيح راجع : @IQTHON ** "
+                        text += f" اكتب الامر عدل حبي ** "
                         await check.client.send_message(
                             Config.PRIVATE_GROUP_BOT_API_ID, text, link_preview=False
                         )
 
-            from .session import iqthon
+            from .session import hsshh
 
             if edited is True:
-                iqthon.tgbot.add_event_handler(func, events.MessageEdited(**kwargs))
+                hsshh.tgbot.add_event_handler(func, events.MessageEdited(**kwargs))
             else:
-                iqthon.tgbot.add_event_handler(func, events.NewMessage(**kwargs))
+                hsshh.tgbot.add_event_handler(func, events.NewMessage(**kwargs))
 
             return wrapper
 
